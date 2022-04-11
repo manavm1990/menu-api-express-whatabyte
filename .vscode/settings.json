@@ -17,8 +17,8 @@
   "files.autoSave": "onFocusChange",
   "files.eol": "\n",
   "files.trimTrailingWhitespace": true,
+  "prettier.requireConfig": true,
   "typescript.inlayHints.parameterNames.enabled": "all",
   "typescript.validate.enable": false,
-  "prettier.requireConfig": true,
   "typescript.updateImportsOnFileMove.enabled": "always"
 }
