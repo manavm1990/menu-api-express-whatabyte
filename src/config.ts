@@ -13,7 +13,7 @@ const config: Config = {
     dataBase: process.env.DB_DATABASE,
     collection: process.env.DB_COLLECTION,
   },
-  port: process.env.PORT || 3000,
+  port: parseInt(process.env.PORT || '3000', 10),
 };
 
 export default config;
