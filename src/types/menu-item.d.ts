@@ -7,7 +7,7 @@ export interface MenuItem {
 }
 
 // Utility Type
-export type NewMenuItemType = Omit<MenuItem, 'id'>;
+export type NewMenuItem = Omit<MenuItem, 'id'>;
 
 export type MenuItemFilter =
   | Partial<MenuItem>
