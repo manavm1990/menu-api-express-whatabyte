@@ -1,6 +1,7 @@
 import got from 'got';
 import config from './config';
 import { MenuItem, MenuItemFilter, NewMenuItem } from './types/menu-item.d';
+import { makeValuesLowercase } from './utils/utils';
 
 interface DeletedItemResponse {
   deletedCount: number;
@@ -19,27 +20,24 @@ const dbConfig = {
 // ⚠️ All things with DATA API are POST requests
 export default {
   find(filter: MenuItemFilter = {}): Promise<MenuItem[]> {
-    // TODO: Iterate over all filter values and make them lowercase
-
     return got
       .post(`${endpoint}/action/find`, {
         headers,
         json: {
           ...dbConfig,
-          filter,
+          filter: makeValuesLowercase(filter),
         },
       })
       .json();
   },
 
-  // TODO: Be sure to normalize all strings to lowercase
   create(newMenuItem: NewMenuItem): Promise<MenuItem> {
     return got
       .post(`${endpoint}/action/insertOne`, {
         headers,
         json: {
           ...dbConfig,
-          newMenuItem,
+          newMenuItem: makeValuesLowercase(newMenuItem),
         },
       })
       .json();
