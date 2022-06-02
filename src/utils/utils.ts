@@ -1,12 +1,9 @@
-type MenuNameAndDescription = {
-  name?: string;
-  description?: string;
-};
+import { MenuItemFilter } from '../types/menu-item';
 
-export const makeValuesLowercase = (filter: MenuNameAndDescription = {}) =>
+export const makeValuesLowercase = (filter: MenuItemFilter = {}) =>
   Object.fromEntries(
     Object.entries(filter).map((entry) => {
       const [key, value] = entry;
-      return [key, value.toLowerCase()];
+      return typeof value === 'string' ? [key, value.toLowerCase()] : entry;
     }),
   );
