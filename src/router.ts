@@ -7,4 +7,8 @@ router.get('/', async (req: Request, res: Response) => {
   res.json(await itemsController.find(req.query));
 });
 
+router.get('/:id', async (req: Request, res: Response) => {
+  res.json(await itemsController.findById(req.params.id!));
+});
+
 export default router;
