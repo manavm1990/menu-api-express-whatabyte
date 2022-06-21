@@ -32,17 +32,33 @@ export default {
       .json();
   },
 
+  findById(id: string): Promise<MenuItem> {
+    return got
+      .post(`${endpoint}/action/find`, {
+        headers,
+        json: {
+          ...dbConfig,
+          filter: {
+            _id: { $oid: id },
+          },
+        },
+      })
+      .json();
+  },
+
   create(newMenuItem: NewMenuItem): Promise<MenuItem> {
+    console.log(newMenuItem, '👋🏾');
     return got
       .post(`${endpoint}/action/insertOne`, {
         headers,
         json: {
           ...dbConfig,
-          newMenuItem: makeValuesLowercase(newMenuItem),
+          document: { ...makeValuesLowercase(newMenuItem) },
         },
       })
       .json();
   },
+
   update(id: string, newMenuItem: NewMenuItem): Promise<MenuItem> {
     return got
       .post(`${endpoint}/action/updateOne`, {
