@@ -11,6 +11,7 @@ const endpoint = config.api.apiEndpoint;
 const headers = {
   'api-key': config.api.apiKey,
 };
+
 const dbConfig = {
   dataSource: config.db.dataSource,
   database: config.db.dataBase,
