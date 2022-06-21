@@ -11,4 +11,8 @@ router.get('/:id', async (req: Request, res: Response) => {
   res.json(await itemsController.findById(req.params.id!));
 });
 
+router.post('/', async (req: Request, res: Response) => {
+  res.json(await itemsController.create(req.body));
+});
+
 export default router;
