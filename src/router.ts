@@ -15,4 +15,8 @@ router.post('/', async (req: Request, res: Response) => {
   res.json(await itemsController.create(req.body));
 });
 
+router.put('/:id', async (req: Request, res: Response) => {
+  res.json(await itemsController.update(req.params.id!, req.body));
+});
+
 export default router;
