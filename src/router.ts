@@ -19,4 +19,8 @@ router.put('/:id', async (req: Request, res: Response) => {
   res.json(await itemsController.update(req.params.id!, req.body));
 });
 
+router.delete('/:id', async (req: Request, res: Response) => {
+  res.json(await itemsController.remove(req.params.id!));
+});
+
 export default router;
