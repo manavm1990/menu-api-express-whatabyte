@@ -8,7 +8,12 @@ router.get('/', async (req: Request, res: Response) => {
 });
 
 router.get('/:id', async (req: Request, res: Response) => {
-  res.json(await itemsController.findById(req.params.id!));
+  try {
+    res.json(await itemsController.findById(req.params.id!));
+  } catch (error: any) {
+    // TODO: Avoid use of any type!
+    res.status(500).send(error.message);
+  }
 });
 
 router.post('/', async (req: Request, res: Response) => {

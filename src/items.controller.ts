@@ -47,7 +47,6 @@ export default {
   },
 
   create(newMenuItem: NewMenuItem): Promise<MenuItem> {
-    console.log(newMenuItem, '👋🏾');
     return got
       .post(`${endpoint}/action/insertOne`, {
         headers,
