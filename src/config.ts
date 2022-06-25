@@ -10,7 +10,7 @@ const config: Config = {
   },
   db: {
     dataSource: process.env.DB_DATA_SOURCE,
-    dataBase: process.env.DB_DATABASE,
+    database: process.env.DB_DATABASE,
     collection: process.env.DB_COLLECTION,
   },
   port: parseInt(process.env.PORT || '3000', 10),

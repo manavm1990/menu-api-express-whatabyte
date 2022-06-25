@@ -14,7 +14,7 @@ const headers = {
 
 const dbConfig = {
   dataSource: config.db.dataSource,
-  database: config.db.dataBase,
+  database: config.db.database,
   collection: config.db.collection,
 };
 
